@@ -16,9 +16,9 @@ def newton_raphson(f, x0, tol=1e-6, max_iter=100):
     for i in range(max_iter):
         fx = f(x)
         fpx = derivee_numerique(f, x)
+        print(f"x{i+1} : {x} - f(x) = {f(x)}")
         if abs(fx) < tol:
-            print(f"Racine trouvée après {i+1} itérations : x = {x}")
-            print(f"Racine approximative : {x}")
+            print(f"Racine trouvée après {i+1} itérations")
             return x
         if fpx == 0:
             raise ValueError("La dérivée est nulle, la méthode échoue")
@@ -33,5 +33,5 @@ def newton_raphson(f, x0, tol=1e-6, max_iter=100):
 f = lambda x: x**2 - 2
 
 # Utiliser la méthode
-x0 = 1.5  # estimation initiale
+x0 = 1  # estimation initiale
 newton_raphson(f, x0)
