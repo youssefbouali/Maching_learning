@@ -1,48 +1,37 @@
-def newton_raphson(f, f_prime, x0, epsilon, max_iter):
+def derivee_numerique(f, x, h=1e-6):
     """
-    Implémentation de la méthode de Newton-Raphson.
+    Calcule la dérivée numérique d'une fonction en utilisant les différences finies.
+    """
+    return (f(x + h) - f(x - h)) / (2 * h)
 
-    Paramètres :
-    - f : Fonction dont on cherche la racine.
-    - f_prime : Dérivée de la fonction f.
-    - x0 : Estimation initiale.
-    - epsilon : Tolérance pour la convergence.
-    - max_iter : Nombre maximal d'itérations.
-
-    Retourne :
-    - La racine approchée ou une erreur si la méthode échoue.
+def newton_raphson(f, x0, tol=1e-6, max_iter=100):
+    """
+    Applique la méthode de Newton-Raphson pour trouver une racine.
+    f : fonction
+    x0 : estimation initiale
+    tol : tolérance d'erreur
+    max_iter : nombre maximum d'itérations
     """
     x = x0
     for i in range(max_iter):
         fx = f(x)
-        fpx = f_prime(x)
-        
-        # Vérifie si la racine est trouvée
-        if abs(fx) < epsilon:
+        fpx = derivee_numerique(f, x)
+        if abs(fx) < tol:
             print(f"Racine trouvée après {i+1} itérations : x = {x}")
+            print(f"Racine approximative : {x}")
             return x
-        
-        # Vérifie si la dérivée est nulle
         if fpx == 0:
-            raise ValueError("La dérivée est nulle, la méthode échoue.")
-        
-        # Met à jour x
-        x = x - fx / fpx
-    
-    print(f"Nombre maximal d'itérations atteint. Approximation : x = {x}")
+            raise ValueError("La dérivée est nulle, la méthode échoue")
+        x -= fx / fpx
+    print(f"Approximation après {max_iter} itérations : {x}")
     return x
 
-# Exemple d'utilisation :
-if __name__ == "__main__":
-    # Définition de la fonction et de sa dérivée
-    f = lambda x: x**2 - 2    # Exemple : Trouver la racine carrée de 2
-    f_prime = lambda x: 2*x
 
-    # Paramètres
-    x0 = 1.0       # Estimation initiale
-    epsilon = 1e-6 # Tolérance
-    max_iter = 100 # Nombre maximal d'itérations
 
-    # Appelle la méthode
-    racine = newton_raphson(f, f_prime, x0, epsilon, max_iter)
-    print(f"Racine approchée : {racine}")
+
+# Définir la fonction
+f = lambda x: x**2 - 2
+
+# Utiliser la méthode
+x0 = 1.5  # estimation initiale
+newton_raphson(f, x0)
