@@ -43,7 +43,7 @@ def fonction(x):
     return 1 - 1 / (5 * x[0]**2 - 6 * x[0] + 5)
 
 # Configuration de l'algorithme
-x0 = [0.5]  # Approximation initiale
+x0 = [0.5000000000]  # Approximation initiale
 epsilon = 1e-6  # Tolérance
 Nmax = 100  # Nombre maximal d'itérations
 
