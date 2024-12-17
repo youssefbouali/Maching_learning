@@ -1,5 +1,15 @@
 import numpy as np
 
+def perte(x, donnees):
+    """
+    Calcul de la fonction de perte (somme des carrés des erreurs).
+    :param x: Valeur de x.
+    :param donnees: Données d'entraînement (y_i).
+    :return: Valeur de la perte.
+    """
+    return np.sum((x - donnees) ** 2)
+
+
 def descente_de_gradient_stochastique(f_gradient, x_init, donnees, taux_apprentissage=0.1, max_iterations=50, tolerance=1e-6):
     """
     Algorithme de descente de gradient stochastique (SGD) avec critère de convergence.
@@ -29,6 +39,10 @@ def descente_de_gradient_stochastique(f_gradient, x_init, donnees, taux_apprenti
 
         # Afficher l'évolution (optionnel)
         print(f"Itération {t+1} : x = {x:.4f} pour x_old={i} y={echantillon}")
+        # Afficher la perte après chaque itération
+        perte_courante = perte(x, donnees)
+        print(f"Perte à l'itération {t+1}: {perte_courante:.4f}")
+
 
         # Vérifier le critère de convergence
         if abs(x - x_precedent) < tolerance:
@@ -47,7 +61,7 @@ donnees = np.array([1.0, 2.0, 3.0, 4.0, 5.0])
 # Initialisation des paramètres
 x_initial = 0.0  # Valeur initiale de x
 taux_apprentissage = 0.1  # Taux d'apprentissage
-max_iterations = 1000  # Nombre maximal d'itérations
+max_iterations = 100  # Nombre maximal d'itérations
 tolerance = 1e-6  # Seuil de convergence
 
 # Exécuter l'algorithme
