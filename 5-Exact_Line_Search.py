@@ -95,3 +95,7 @@ x_opt, f_opt = descente_gradient(f, lambda x: evaluate_gradient(gradient, x), x0
 
 print("Point optimal:", x_opt)
 print("Valeur optimale:", f_opt)
+
+
+
+#critère d'Armijo

@@ -47,10 +47,18 @@ donnees = np.array([1.0, 2.0, 3.0, 4.0, 5.0])
 # Initialisation des paramètres
 x_initial = 0.0  # Valeur initiale de x
 taux_apprentissage = 0.1  # Taux d'apprentissage
-max_iterations = 50  # Nombre maximal d'itérations
+max_iterations = 1000  # Nombre maximal d'itérations
 tolerance = 1e-6  # Seuil de convergence
 
 # Exécuter l'algorithme
 x_final = descente_de_gradient_stochastique(gradient_quadratique, x_initial, donnees, taux_apprentissage, max_iterations, tolerance)
 
 print(f"\nValeur finale de x : {x_final:.4f}")
+
+#data= [1.0, 2.0, 3.0, 4.0, 5.0]
+#x= 0.0
+#Gradient= 2(x−y3 )=2(0.0−3.0)= −6.0
+#η =0.1
+#x.new =x.old −η×Gradient=0.0−0.1×(−6.0)=0.6
+
+#La valeur optimale de x est la valeur qui minimise l'écart entre x et toutes les valeurs des données y. En d'autres termes, après plusieurs étapes de mise à jour aléatoire, on arrive à une valeur de x qui est proche du **moyenne des valeurs** =3

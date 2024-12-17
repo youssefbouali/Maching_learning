@@ -57,3 +57,10 @@ Nmax = 100  # Nombre maximal d'itérations
 minimum = newton_method(f, f_prime, f_seconde, x0, epsilon, Nmax)
 
 print("Approximation du minimum local:", minimum)
+
+
+
+
+#f_prime_sym = sp.diff(f_sym, x_sym)  # Première dérivée
+#f_prime = sp.lambdify(x_sym, f_prime_sym, 'numpy')
+#grad = f_prime(xk)

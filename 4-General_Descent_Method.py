@@ -109,7 +109,7 @@ print("Value of the function at the optimal solution:", f_func(solution[0]))
 
 
 
-
+# min alpha (f_sym, x_k, d_k, variables)
 
 #Fonction gradient_descent_with_line_search(f_sym, variables, x0, epsilon, max_iter):
 #    Initialiser gradient_sym ← gradient_symbolique(f_sym)

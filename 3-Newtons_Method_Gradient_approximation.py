@@ -50,3 +50,6 @@ Nmax = 100  # Nombre maximal d'itérations
 # Exécution de l'algorithme
 minimum = newton_method_numerical(fonction, x0, epsilon, Nmax)
 print("Approximation du minimum local:", minimum)
+
+
+#grad ~ (f(x + h) - f(x - h)) / (2 * h)
