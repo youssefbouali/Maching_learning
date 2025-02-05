@@ -77,7 +77,7 @@ def lagrangian_augmented(x0, λ0, c0, epsilon, max_iter):
 
 # Example initialization
 x0 = np.array([0.1, 0.1])  # Initial guess for the decision variables
-λ0 = np.array([0.0, 0.0])  # Initial Lagrange multipliers
+λ0 = np.array([0.1, 0.1])  # Initial Lagrange multipliers
 c0 = 1.0  # Initial penalty parameter
 epsilon = 1e-6  # Convergence tolerance
 max_iter = 100  # Maximum number of iterations
